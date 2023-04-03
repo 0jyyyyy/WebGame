@@ -12,16 +12,46 @@
 </head>
 
 <body>
-    <div><span id="order">1</span>번째 참가자</div>
-    <div>제시어: <span id="word"></span></div>
+    <div><span id="order">1</span>번째 참가자</div> 
+    <div>제시어: <span id="word"></span></div> <!--첫번째 참가자 == 제시어가 비어있는것-->
     <input type="text">
-    <button class="target">입력</button>
-    <button class="btn">버튼2</button>
-    <button class="btn target">버튼3</button>
+    <button>입력</button>
     <script>
-   const number = parseInt(prompt("몇 명이 참가하나요?"),10);
-    alert(number);
-    const yesOrNo = confirm("확인이나 취소를 눌러주세요");
+    const number = Number(prompt('몇 명이 참가하나요?'));
+    const $button = document.querySelector('button');
+    const $input = document.querySelector('input');
+    const $word = document.querySelector('#word');
+    let word; //제시어
+    let newWord; //새로 입력한 단어
+    const onClickButton = () =>{
+        if(!word){ //제시어가 비어 있는가?
+           word = newWord; //비어 있다. 비어 있으면 입력한 단어가 제시어가 된다.
+           $word.textContent = word;
+           $input.value = '';
+        }else{
+            //비어 있지 않다.
+            
+        }
+    };
+    const onInput = (event) =>{
+        newWord = event.target.value;
+    };
+    $button.addEventListener('click', onClickButton);
+    $input.addEventListener('input',onInput);
+
+   //const number = parseInt(prompt("몇 명이 참가하나요?"),10);
+   // alert(number);
+   // const yesOrNo = confirm("확인이나 취소를 눌러주세요");
+
+   // document.querySelector('input').addEventListener('input',(event)=>{ // 콜백 함수이면서, 이름이 없는 함수이기 때문에 콜백 함수
+   //     console.log('글자 입력',event.target.value);
+   // });
+
+   // const onClick = function() {
+  //      console.log('버튼 클릭');
+  //  }
+
+   // document.querySelector('button').addEventListener('click',onClick); //인수에 어떤 형태로 들어가야하는지 정확히 파악해야한다.
     
    </script>
 </body>
