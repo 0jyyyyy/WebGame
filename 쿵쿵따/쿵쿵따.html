@@ -13,7 +13,18 @@
 </head>
 
 <body>
+    <div><span id='order'>1</span>번째 참가자</div>
+    <div>제시어: <span id='word'></span></div>
+    <input type ='text'>
+    <button>입력</button>
     <script>
+        const number = Number(prompt('몇 명이 참가하나요?'));
+        if(number === null || number === false){
+            alert('프로그램 종료합니다.')
+            return;
+        }else{
+          
+        }
         /**지금까지 배운걸 통해 쿵쿵따 만들기를 스스로 해보자
          * 순서도 직접 그려서 해보자
          * 1. 입력할 수 있는 단어를 세 글자로 고정
